@@ -1,0 +1,42 @@
+# Introduction to Comprehensions
+
+# Comprehensions are a concise way to create lists, sets, and dictionaries in Python.
+# They allow you to generate collections in a single line of code, making your code more readable and efficient.
+
+# Three types of comprehensions:
+# 1. List Comprehensions
+# 2. Set Comprehensions
+# 3. Dictionary Comprehensions
+
+# List Comprehensions
+# List comprehensions provide a shorter syntax when you want to create a new list based on the values of an existing list.
+# Syntax: [expression for item in iterable if condition]
+# Example: Create a list of squares of even numbers from 0 to 9
+squares = [x**2 for x in range(10) if x % 2 == 0]
+print(squares)  # Output: [0, 4, 16, 36, 64]
+
+# Set Comprehensions
+# Set comprehensions are similar to list comprehensions but create a set instead of a list.
+# Syntax: {expression for item in iterable if condition}
+# Example: Create a set of squares of even numbers from 0 to 9
+squares_set = {x**2 for x in range(10) if x % 2 == 0}
+print(squares_set)  # Output: {0, 4, 16, 36, 64}
+
+# Dictionary Comprehensions
+# Dictionary comprehensions allow you to create dictionaries in a similar way.
+# Syntax: {key_expression: value_expression for item in iterable if condition}
+# Example: Create a dictionary with numbers as keys and their squares as values
+squares_dict = {x: x**2 for x in range(10) if x % 2 == 0}
+print(squares_dict)  # Output: {0: 0, 2: 4, 4: 16, 6: 36, 8: 64}
+
+# Nested Comprehensions
+# You can also use nested comprehensions to create multi-dimensional lists, sets, or dictionaries.
+# Example: Create a 2D list (matrix) using nested list comprehension
+matrix = [[j for j in range(5)] for i in range(3)]
+print(matrix)  # Output: [[0, 1, 2, 3, 4], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4]]
+
+# Takeaways:
+# 1. Comprehensions are a shorthand syntax that can replace certain for loops with a single line of code, and they can be nested and/or conditional.
+# 2. List comprehensions are used to create a new list based on the data in another collection.
+# 3. Dictionary comprehensions are used to create a new dictionary based on the data in another collection.
+# 4. Set comprehensions are used to create a new set based on the data in another collection.

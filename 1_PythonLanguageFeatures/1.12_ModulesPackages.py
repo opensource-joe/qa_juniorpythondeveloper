@@ -64,3 +64,9 @@ blackjack()
 # 4. The math module provides access to mathematical functions.
 # 5. The collections module provides alternatives to built-in types.
 # 6. The random module implements pseudo-random number generators.
+
+# In the interpreter, you can use the help function to get help on a module or function.
+# For example, help(math) will give you help on the math module.
+# You can also use help(math.sqrt) to get help on the sqrt function in the math module.
+
+help()
