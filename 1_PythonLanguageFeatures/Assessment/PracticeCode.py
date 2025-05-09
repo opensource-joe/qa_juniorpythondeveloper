@@ -93,26 +93,59 @@
 
 # ------------------------
 
-class Car:
-    def __init__(self, make, model, year):
-        self.make = make
-        self.model = model
-        self.year = year
-        self.odometer_reading = 0
+# class Car:
+#     def __init__(self, make, model, year):
+#         self.make = make
+#         self.model = model
+#         self.year = year
+#         self.odometer_reading = 0
 
-    def get_descriptive_name(self):
-        long_name = f"{self.year} {self.make} {self.model}"
-        return print((long_name.title()))
+#     def get_descriptive_name(self):
+#         long_name = f"{self.year} {self.make} {self.model}"
+#         return print((long_name.title()))
 
-    def read_odometer(self):
-        print(f"This car has {self.odometer_reading} miles on it.")
+#     def read_odometer(self):
+#         print(f"This car has {self.odometer_reading} miles on it.")
 
-    def update_odometer(self, mileage):
-        if mileage >= self.odometer_reading:
-            self.odometer_reading = mileage
-        else:
-            print("You can't roll back an odometer!")
+#     def update_odometer(self, mileage):
+#         if mileage >= self.odometer_reading:
+#             self.odometer_reading = mileage
+#         else:
+#             print("You can't roll back an odometer!")
 
-my_new_car = Car("audi", "a4", 2016) # create an instance of the class
-my_new_car.get_descriptive_name() # call the get_descriptive_name method
-my_new_car.read_odometer() # call the read_odometer method
+#     def increment_odometer(self, miles):
+#         self.odometer_reading += miles
+
+# my_old_car = Car("audi", "a4", 2016) # create an instance of the class
+# my_old_car.get_descriptive_name() # call the get_descriptive_name method
+# my_old_car.read_odometer() # call the read_odometer method
+
+# my_new_car = Car("subaru", "outback", 2020) # create another instance of the class
+# my_new_car.get_descriptive_name() # call the get_descriptive_name method
+# my_new_car.update_odometer(23) # set the odometer_reading attribute
+# my_new_car.read_odometer() # call the read_odometer method
+
+# my_new_car.increment_odometer(100) # increment the odometer_reading attribute
+# my_new_car.read_odometer() # call the read_odometer method
+
+# ------------------------
+# Exercise 9-4 from Python Crash Course. Page 163.
+# Number Served: Start with your program from Exercise 9-1. Add an attribute called number_served with a default value of 0. Create an instance called restaurant from this class. Print the number of customers the restaurant has served, and then change this value and print it again.
+
+class Restaurant:
+    def __init__(self, restaurant_name, cuisine_type):
+        self.restaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
+        self.number_served = 0
+
+    def describe_restaurant(self):
+        print(f"Restaurant Name: {self.restaurant_name}")
+        print(f"Cuisine Type: {self.cuisine_type}")
+        print(f"Number of Customers Served: {self.number_served}")
+
+my_restaurant = Restaurant("The Great Grill", "American") # create an instance of the class
+restaurant = Restaurant("Bob's Burgers", "Italian")  # create another instance of the class 
+
+# Call the methods
+my_restaurant.describe_restaurant() # call the describe_restaurant method
+restaurant.describe_restaurant() # call the describe_restaurant method
