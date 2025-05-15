@@ -132,20 +132,45 @@
 # Exercise 9-4 from Python Crash Course. Page 163.
 # Number Served: Start with your program from Exercise 9-1. Add an attribute called number_served with a default value of 0. Create an instance called restaurant from this class. Print the number of customers the restaurant has served, and then change this value and print it again.
 
-class Restaurant:
-    def __init__(self, restaurant_name, cuisine_type):
-        self.restaurant_name = restaurant_name
-        self.cuisine_type = cuisine_type
-        self.number_served = 0
+# class Restaurant:
+#     def __init__(self, restaurant_name, cuisine_type):
+#         self.restaurant_name = restaurant_name
+#         self.cuisine_type = cuisine_type
+#         self.number_served = 0
 
-    def describe_restaurant(self):
-        print(f"Restaurant Name: {self.restaurant_name}")
-        print(f"Cuisine Type: {self.cuisine_type}")
-        print(f"Number of Customers Served: {self.number_served}")
+#     def describe_restaurant(self):
+#         print(f"Restaurant Name: {self.restaurant_name}")
+#         print(f"Cuisine Type: {self.cuisine_type}")
+#         print(f"Number of Customers Served: {self.number_served}")
 
-my_restaurant = Restaurant("The Great Grill", "American") # create an instance of the class
-restaurant = Restaurant("Bob's Burgers", "Italian")  # create another instance of the class 
+# my_restaurant = Restaurant("The Great Grill", "American") # create an instance of the class
+# restaurant = Restaurant("Bob's Burgers", "Italian")  # create another instance of the class 
 
-# Call the methods
-my_restaurant.describe_restaurant() # call the describe_restaurant method
-restaurant.describe_restaurant() # call the describe_restaurant method
+# # Call the methods
+# my_restaurant.describe_restaurant() # call the describe_restaurant method
+# restaurant.describe_restaurant() # call the describe_restaurant method
+
+# ------------------------
+# # Create a guessing game using a while loop. The program should randomly select a number between 1 and 100, and the user has to guess the number. The program should give hints if the guess is too high or too low. The game should continue until the user guesses the correct number.
+
+# import random
+# def guessing_game():
+#     number_to_guess = random.randint(1, 10)  # Randomly select a number between 1 and 10
+#     guess = None
+
+#     print("Welcome to the Guessing Game!")
+#     print("I'm thinking of a number between 1 and 10.")
+
+#     while guess != number_to_guess:
+#         guess = int(input("Take a guess: "))
+        
+#         if guess < number_to_guess:
+#             print("Too low! Try again.")
+#         elif guess > number_to_guess:
+#             print("Too high! Try again.")
+#         else:
+#             print(f"Congratulations! You guessed the number {number_to_guess} correctly!")
+#             break
+
+# # Call the function to start the game
+# guessing_game()

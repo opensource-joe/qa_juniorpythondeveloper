@@ -1,4 +1,5 @@
 # Exploring While Loops
+
 # While loops are used to execute a block of code as long as a condition is true.
 # They are useful when the number of iterations is not known beforehand.
 
@@ -18,8 +19,27 @@ if guess == answer:
 else:
     print("Wrong guess. Try again.")
 
+# Using break and continue in a while loop
+while True:
+    command = input("Enter a command (or 'exit' to quit): ")
+    if command == "exit":
+        print("Exiting the loop.")
+        break  # Exit the loop
+    elif command == "skip":
+        print("Skipping this iteration.")
+        continue  # Skip to the next iteration
+    else:
+        print(f"You entered: {command}")
+
 # Takeaways:
 # 1. The purpose of a while loop is to repeat an action until some condition is met.
 # 2. The condition consists of any expression which evaluates to True.
 # 3. The keyword 'continue' is used to jump to the top of the loop and re-evaluate the condition. 
 # 4. The keyword 'break' is used to stop the current loop.
+
+# Quiz:
+# 1. What is the syntax for a while statement in Python? while condition:
+# 2. In Python, what keyword is used to go back to the top of a loop and re-evaluate the condition? continue
+# 3. In Python, what keyword can you use to stop the execution of a loop and exit it immediately? break
+# 4. What is the purpose of a while loop in Python? To repeat an action until a condition is met.
+#5. In Python, what are boolean values used for? To make decisions and control the flow of code
