@@ -56,3 +56,15 @@
 # # Input function used for taking user input from the console.
 # user_input = input("Enter your name: ")  # Output: Enter your name: (waits for user input)
 # print(f"Hello, {user_input}!")  # Output: Hello, <user_input>!
+
+# --------------------------------
+
+# # Section 1.12: Modules and Packages
+# # Use urlib to fetch a response from https://cloudacademy.com
+
+# import urllib.request
+# response = urllib.request.urlopen('https://cloudacademy.com')
+# html = response.read()
+# print(html[:100])  # Print the first 100 bytes of the response
+
+# --------------------------------
