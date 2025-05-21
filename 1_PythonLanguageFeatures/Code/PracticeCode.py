@@ -68,3 +68,43 @@
 # print(html[:100])  # Print the first 100 bytes of the response
 
 # --------------------------------
+
+# # Section 1.14: Exception Handling
+
+# raise Exception('Oh no, something went wrong!')  # Raise an exception with a custom message
+
+# # Raise an Exception and pass arguments to it, but it is not raised
+# broken_universe = Exception('The universe is broken', 'UNI-0435')
+# print(broken_universe.args)
+
+# # Exceptions are normal objects until they are raised.
+# broken_universe = Exception('The universe is broken', 'UNI-0435')
+# raise broken_universe
+
+# # Using try, except, else, and finally to handle exceptions
+# try:
+#     print('from try')
+# except:
+#     print('from except')
+# else:
+#     print('from else')
+# finally:
+#     print('from finally')
+
+# # The combination of try and finally provides a mechanism for perfoming cleanup actions such as closing files, network and database connections, etc.
+# try:
+#     f = open('dataset.txt', 'w')
+#     f.write('python is neat')
+# finally:
+#     f.close()
+#     print('file closed!')
+
+# # The code below follows the ask for forgiveness model by attempting to open the file and handling the exception if the file is missing.
+# import json
+
+# try:
+#     with open('dataset.json') as dataset:
+#         ds = json.loads(dataset.read())
+#         ...
+# except OSError:
+#     print('missing dataset file')

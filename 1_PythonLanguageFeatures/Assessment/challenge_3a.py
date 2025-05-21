@@ -1,4 +1,3 @@
-
 import socket
 import threading
 
@@ -9,7 +8,6 @@ class MessageServer:
         self.host = host
         self.port = port
         self.msgs = []
-
 
     def serve(self):
         ''' A basic TCP/IP listener. 
@@ -28,14 +26,12 @@ class MessageServer:
                         # Echo the message back to the client.
                         conn.sendall(mess)
 
-
     def serve_forever(self, **kwargs):
         ''' Runs the message_server function in a background thread. 
             Must be running before the client can be used.
         '''
         server = threading.Thread(target=self.serve, kwargs=kwargs, name='network_server', daemon=True)
         server.start()
-
 
     def search(self, fn: callable):
         ''' 
@@ -47,7 +43,6 @@ class MessageServer:
         '''
         return [msg for msg in self.msgs if fn(msg)]
     
-
     def unredacted(self):
         ''' Returns:
                 A list of messages that are not redacted in the order they were received.
@@ -57,15 +52,29 @@ class MessageServer:
             >>> server.unredacted()
             [b'Hey!', b'Sup.']
         '''
-        
+        # Messages that are not redacted (not all asterisks after 'TOP SECRET: ')
+        prefix = b'TOP SECRET: '
+        return self.search(
+            lambda msg: not (msg.startswith(prefix) and len(msg) > len(prefix) and all(b == ord('*') for b in msg[len(prefix):]))
+        )
 
 
-def redact():
+def redact(func=None):
     ''' A decorator used to redact messages sent via the send_message method of the  MessageClient. 
 
         Messages are expected to be bytes objects. NOT str objects.
     '''
-
+    def decorator(send_message):
+        def wrapper(self, message):
+            prefix = b'TOP SECRET: '
+            if isinstance(message, bytes) and message.startswith(prefix):
+                message = prefix + b'*' * (len(message) - len(prefix))
+            return send_message(self, message)
+        return wrapper
+    if func is None:
+        return decorator
+    else:
+        return decorator(func)
 
 
 class MessageClient:
@@ -97,8 +106,20 @@ class MessageClient:
         self.host = host
         self.port = port
 
-    
+    def __enter__(self):
+        # Open connection when entering context
+        self.connection = socket.create_connection((self.host, self.port), timeout=5.0)
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        # Close connection when exiting context
+        if self.connection:
+            self.connection.close()
+            self.connection = None
+
+    @redact
     def send_message(self, message) -> bytes:
+        # Message is redacted before being sent
         self.connection.sendall(message)
         return self.connection.recv(1024)
 

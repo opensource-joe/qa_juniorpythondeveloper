@@ -1,3 +1,4 @@
+
 def the_good_bad_and_sorted(sequence):
     '''
         Args:
@@ -48,8 +49,12 @@ def the_good_bad_and_sorted(sequence):
             ([42, 4, 2], ['MISSING'])
     '''
     
+    sequence = [int(i) if i.isdigit() else i for i in sequence]
+    good = sorted([i for i in sequence if isinstance(i, int) and i % 2 == 0], reverse=True)
+    bad = sorted([i for i in sequence if isinstance(i, str)])
+    return good, bad
 
-
+# Test cases
 if __name__ == '__main__':
     import doctest
     doctest.testmod(optionflags=doctest.IGNORE_EXCEPTION_DETAIL, verbose=True)
