@@ -317,6 +317,7 @@ The test runner can be started using the unittest.main callable. Unittest.main c
 The unittest module is worth knowing because it's built into Python's standard library. Which makes it accessible without adding third-party dependencies.
 
 ### Keep Learning
+TODO: Complete these labs.
 - [Introduction to Mocking](https://platform.qa.com/lab/python-unittest-mock/)
 - [Introduction to Patching](https://platform.qa.com/lab/python-unittest-patch/)
 
