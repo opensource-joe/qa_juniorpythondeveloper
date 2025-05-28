@@ -11,7 +11,7 @@ Actions are taken and assertions are made about the state of the results. Assert
 
 The following code represents a basic unittest example. This example tests Python's built-in int callable. Tests are defined as methods of a unittest.TestCase, opens in a new tab class. Test cases represent concepts which can be tested as a single entity. For example: objects, functions, and methods. Test methods can contain zero or more assertions. A test passes when all assertions inside the test method are successful.
 
-```
+``` python
 import unittest
 class TestExample(unittest.TestCase):
     def test_is_number(self):
@@ -26,7 +26,7 @@ if __name__ == '__main__':
 ## Test Runner: Main
 The unittest module includes a mechanism for running tests called a test runner. The test runner is used to run one or more tests from one or more test cases.
 
-```
+``` python
 import unittest 
 ...
 # Q: What does __name__ == '__main__' do?
@@ -38,7 +38,7 @@ if __name__ == '__main__':
 ```
 
 Actual code test. Above is explaining '__main__'.
-```
+``` python
 import unittest
 class TestExample(unittest.TestCase):
     def test_is_number(self):
@@ -53,14 +53,14 @@ if __name__ == '__main__':
 ```
 
 Configuration can be specific with command line flags. "-h" for help.
-```
+``` python
 python3 cloudacademy/test_assertion.py -h 
 ```
 
 ## Test Runner: CLI
 The test runner can be started by invoking the unittest module as a command line application. Including options to run one or more test modules, test cases, or test methods.
 
-```
+``` python
 import unittest
 class TestExample(unittest.TestCase):
     def test_is_number(self):
@@ -81,12 +81,12 @@ The unittest module includes a test discovery mechanism, opens in a new tab mech
 [Unittest module's production test suite](https://github.com/python/cpython/blob/main/Lib/unittest/main.py)
 
 Display files to be discovered and run.
-```
+``` python
 ls -lash /usr/local/lib/python3.11/unittest/test
 ```
 
 Discover and run tests in the IDEs terminal pane.
-```
+``` python
 python3 -m unittest discover /usr/local/lib/python3.11/unittest/test "test*.py"
 ```
 
@@ -101,7 +101,7 @@ Class definitions for test cases often include the name Test at the start or end
 
 Tests are defined by creating methods with names starting with the word test. This naming convention is used by the test runner to identify tests. When the test runner encounters test* methods it recognizes and runs them.
 
-```
+``` python
 import unittest
 class TestMethods(unittest.TestCase):
     def test_should_run(self):
@@ -120,7 +120,7 @@ python3 cloudacademy/test_assertion.py -v -f
 The [unittest.TestCase](https://docs.python.org/3.9/library/unittest.html#unittest.TestCase), opens in a new tab base class defines methods for performing assertions. These methods are used to compare and inspect objects in different ways.
 
 Tests use one or more assertion methods to test assumptions.
-```
+``` python
 import unittest
 class Test(unittest.TestCase):
     def test_common_assertion_methods(self):
@@ -200,7 +200,7 @@ Test cases may consist of many test methods. To reduce repeated code the ```Test
 
 This is commonly used to set up connections to external services such as databases.
 
-```
+``` python
 import unittest
 import sqlite3
 class TestSetupTeardown(unittest.TestCase):
@@ -250,7 +250,7 @@ python3 cloudacademy/test_assertion.py
 ## Test Cases: Skip Tests
 Test methods can be conditionally skipped using decorator functions or ```TestCase``` methods. This is useful in scenarios where tests aren't required for a given operating system, Python version, module version, etc.
 
-```
+``` python
 import unittest
 import sys
 class TestSkipIt(unittest.TestCase):
@@ -292,7 +292,7 @@ python3 cloudacademy/test_assertion.py
 ## Test Failures
 Incorrect assertions result in failing test methods. Failed tests display the traceback in the console.
 
-```
+``` python
 import unittest
 class TestFailures(unittest.TestCase):
     def test_failures(self):
